@@ -51,7 +51,9 @@ Mấu chốt của tính đa nền tảng nằm ở chỗ này: trình biên d�
 ---
 
 ##  **III. CẤU TRÚC CHƯƠNG TRÌNH JAVA VÀ PACKAGE**
-###  **1. Chương trình mẫu **
+
+###  **3.1 Chương trình mẫu**
+
 VD: Chương trình in ra `Hello World!`
 
 ```java
@@ -72,7 +74,7 @@ public class Main {
 
   - public static void main(String[] args): Điểm bắt đầu bắt buộc khi chạy một ứng dụng Java.
 ---
-### 2. Giải thích hàm main
+### 3.2 Giải thích hàm main
 
 - `public` (Access Modifier - Phạm vi truy cập):
   - Cho phép phương thức này có thể được truy cập và gọi từ bất kỳ đâu, kể cả bên ngoài class hay bên ngoài package.
@@ -91,29 +93,32 @@ public class Main {
   - `String[]`: Mảng chứa các chuỗi ký tự (String).
   - `args`: Tên biến đại diện cho mảng (bạn có thể đổi tên args thành tên khác như arguments hay a).
 
-  - Tại sao cần String[] args?: Cho phép người dùng truyền các tham số đầu vào từ cửa sổ dòng lệnh (Terminal/CMD) vào chương trình ngay tại thời điểm khởi chạy.
+  - Tại sao cần `String[] args`: Cho phép người dùng truyền các tham số đầu vào từ cửa sổ dòng lệnh (Terminal/CMD) vào chương trình ngay tại thời điểm khởi chạy.
 
 Ví dụ: Nếu bạn chạy chương trình từ terminal với lệnh:
 ```
 java Main Hello World 123
 ```
-- Lúc này, mảng args sẽ nhận 3 phần tử dạng chuỗi: args[0] = "Hello", args[1] = "World", args[2] = "123".
+- Lúc này, mảng `args` sẽ nhận 3 phần tử dạng chuỗi: 
+```cpp
+args[0] = "Hello", args[1] = "World", args[2] = "123".
+```
 ---
-### 3. **Package là gì?**
-#### *3.1 Khái niệm*
-- Package trong Java tương đương với một thư mục dùng để gom nhóm các lớp (class), giao diện (interface) có cùng chức năng hoặc liên quan với nhau.  
+### 3.3 **Package là gì?**
+#### *3.3.1 Khái niệm*
+- *Package* trong Java tương đương với một thư mục dùng để gom nhóm các lớp (class), giao diện (interface) có cùng chức năng hoặc liên quan với nhau.  
 
-#### *3.2 Tác dụng*
+#### *3.3.2 Tác dụng*
   - Phân loại mã nguồn giúp quản lý dự án dễ dàng.
   - Tránh xung đột tên (VD: Bạn có thể có 2 class cùng tên User nếu nằm ở 2 package khác nhau).
   - Kiểm soát quyền truy cập giữa các lớp.  
 
-#### *3.3 Cú pháp*
+#### *3.3.3 Cú pháp*
   - Viết bằng chữ cái in thường
   - Khai báo ở đầu file: `package com.proptit.app;`
   - Nhập (import) thư mục/class từ package khác: `import com.proptit.app.Training;`
 
-**VD1: 2 File có CÙNG Package**
+```VD1: 2 File có CÙNG Package```
 - Bạn có thể khởi tạo đối tượng hoặc gọi trực tiếp các phương thức/lớp mà không cần import.
 
 ```java
@@ -136,8 +141,8 @@ public class Main {
     }
 }
 ```  
-
-**VD2: 2 File khác Package**
+---
+```VD2: 2 File khác Package```
 - Class cần dùng phải được khai báo bằng từ khóa public.  
 
 - Ở file mới, bạn phải dùng lệnh import trỏ đúng đến tên package + tên class đó.
@@ -159,9 +164,8 @@ public class Main {
     }
 }
 ```
-<br>
-
-**VD3: Sử dụng tên đầy đủ**
+---
+```VD3: Sử dụng tên đầy đủ```
 - Khi sử dụng tên đầy đủ thì sẽ chỉ truy cập được tới lớp đã khai báo của package. Bạn  sẽ không cần phải sử dụng đến các từ khóa import. Tuy nhiên, mỗi khi truy cập vào các lớp hoặc interface thì ban cần phải sử dụng tên đầy đủ
 <br>
 - Khi 2 package có tên lớp giống nhau thì thường sử dụng cách này. Ví dụ: 2 package java.util và java.sql chứa lớp có tên giống nhau là lớp Date
@@ -174,7 +178,7 @@ public class A {
     }
 }
 ```  
-
+<br></br>
 ```java
 package mypack; 
 class B{ 
@@ -184,7 +188,7 @@ class B{
     } 
 } 
 ```  
-
+---
 #### *3.4 Quy trình thao tác*
 - Chuẩn bị file: Tạo file Simple.java với nội dung:
 ```java
@@ -213,8 +217,8 @@ Learn java package
 ```
 ---
 ## **IV. SYNTAX CƠ BẢN TRONG JAVA**
-### **1. Khai báo biến nguyên thủy**
-#### *1.1. 8 kiểu dữ liệu nguyên thủy*
+### **4.1 Khai báo biến nguyên thủy**
+#### *4.1.1. 8 kiểu dữ liệu nguyên thủy*
 
 | Nhóm | Kiểu dữ liệu | Kích thước | Giá trị mặc định | Khoảng giá trị / Mô tả | Ví dụ khai báo |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -232,7 +236,7 @@ Learn java package
 > - Hằng số số thực mặc định là double. Muốn gán cho kiểu float, bắt buộc phải có hậu tố F hoặc f.
 ---
 
-#### *1.2. Quy tắc đặt tên biến*
+#### *4.1.2 Quy tắc đặt tên biến*
 - Ký tự cho phép: Chỉ gồm chữ cái (a-z, A-Z), chữ số (0-9), dấu gạch dưới (_), và dấu đô la ($).
 
 - Không bắt đầu bằng số: Tên biến không được bắt đầu bằng chữ số.
@@ -248,7 +252,7 @@ int number1 = 10; (Hợp lệ)
 
 - Không chứa khoảng trắng hoặc ký tự đặc biệt khác (@, #, %, -,...).
 ---
-### **2. Câu lệnh rẽ nhánh**
+### **4.2 Câu lệnh rẽ nhánh**
 
 ```java
 int score = 85;
@@ -272,7 +276,7 @@ switch (day) {
 }
 ```
 ---
-### **3. Vòng Lặp**
+### **4.3 Vòng Lặp**
 ```java
 // 1. Vòng lặp for
 for (int i = 0; i < 5; i++) {
@@ -295,7 +299,7 @@ do {
 ```
 ---
 
-### **4. Mảng**
+### **4.4 Mảng (ARRAY)**
 - Khai báo
 ```java
 // Cách 1: Khai báo kích thước mảng trước
