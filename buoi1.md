@@ -189,7 +189,7 @@ class B{
 } 
 ```  
 ---
-#### *3.4 Quy trình thao tác*
+#### *3.3.4 Quy trình thao tác*
 - Chuẩn bị file: Tạo file Simple.java với nội dung:
 ```java
 package mypack;
