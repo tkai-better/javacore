@@ -1,16 +1,14 @@
 # **[JAVA] - BUỔI 1: WELCOME TO JAVA**
 ## **I. TỔNG QUAN VỀ NGÔN NGỮ LẬP TRÌNH JAVA**
 
-- **Định nghĩa**: Java là ngôn ngữ lập trình bậc cao, hướng đối tượng (OOP), có tính bảo mật cao và mạnh mẽ.
-<br>
-- **Lịch sử ra đời**: Được phát triển bởi Sun Microsystems (do James Gosling khởi xướng) vào năm 1995, sau này được Oracle mua lại.
-<br>
-- **Lí do ra đời**: Vào đầu những năm 1990, các ngôn ngữ phổ biến như C/C++ gặp phải hai hạn chế lớn 
-   - Phụ thuộc vào phần cứng/hệ điều hành: Chương trình biên dịch trên hệ điều hành này không thể chạy trực tiếp trên hệ điều hành khác (phải biên dịch lại).
+-  **Định nghĩa**: Java là ngôn ngữ lập trình bậc cao, hướng đối tượng (OOP), có tính bảo mật cao và mạnh mẽ.  
 
+-  **Lịch sử ra đời**: Được phát triển bởi Sun Microsystems (do James Gosling khởi xướng) vào năm 1995, sau này được Oracle mua lại.
+-  **Lí do ra đời**: Vào đầu những năm 1990, các ngôn ngữ phổ biến như C/C++ gặp phải hai hạn chế lớn:  
+   - Phụ thuộc vào phần cứng/hệ điều hành: Chương trình biên dịch trên hệ điều hành này không thể chạy trực tiếp trên hệ điều hành khác (phải biên dịch lại).  
 
-   - Quản lý bộ nhớ phức tạp: Lập trình viên C/C++ phải tự quản lý bộ nhớ (con trỏ, cấp phát/giải phóng bộ nhớ), dễ dẫn đến lỗi tràn bộ nhớ hoặc rò rỉ bộ nhớ.
-<br>
+   - Quản lý bộ nhớ phức tạp: Lập trình viên C/C++ phải tự quản lý bộ nhớ (con trỏ, cấp phát/giải phóng bộ nhớ), dễ dẫn đến lỗi tràn bộ nhớ hoặc rò rỉ bộ nhớ.  
+
 - Java ra đời với mục tiêu giải quyết hai vấn đề trên:
   - Triết lý "Write Once, Run Anywhere" (WORA): Viết mã một lần, chạy ở bất kỳ đâu có môi trường Java.
 
@@ -21,15 +19,14 @@
 ## **II. JAVA HOẠT ĐỘNG NHƯ THẾ NÀO?**
 Toàn bộ vòng đời của một chương trình Java có thể tóm gọn thành bốn bước, theo đúng thứ tự:
 
-1. **Viết mã nguồn (Source Code)**: Bạn gõ những dòng code Java vào một file `.java`. File này giống như thực đơn bạn nghĩ ra cho bữa tối — chưa ăn được, nhưng là kế hoạch quan trọng nhất.
-<br>
-2. **Biên dịch thành Bytecode**: Trình biên dịch của Java (*javac*) biến mã nguồn thành **Bytecode**, lưu trong file `.class`. Bytecode giống như "món ăn nửa chín", không còn là code người đọc, cũng chưa phải mã máy, mà là một định dạng trung gian chuẩn hóa, sẵn sàng để JVM thực thi.
-<br>
-3. **Chạy trên JVM (Java Virtual Machine)**: JVM đọc Bytecode và dịch nó thành mã máy mà hệ điều hành cụ thể của bạn hiểu được. Đây là bước "dọn bàn" — và cũng chính là chìa khóa giúp cùng một file `.class` chạy được trên Windows, macOS hay Linux, miễn là nơi đó có cài JVM.  
-<br>
-4. **Dọn dẹp**: JVM không chỉ dịch mã, nó còn quản lý bộ nhớ, xử lý lỗi, và tự dọn dẹp những thứ không còn dùng đến (như các biến đã bị bỏ rơi).
----
+1.  **Viết mã nguồn (Source Code)**: Bạn gõ những dòng code Java vào một file `.java`. File này giống như thực đơn bạn nghĩ ra cho bữa tối — chưa ăn được, nhưng là kế hoạch quan trọng nhất.  
 
+2.  **Biên dịch thành Bytecode**: Trình biên dịch của Java (*javac*) biến mã nguồn thành **Bytecode**, lưu trong file `.class`. Bytecode giống như "món ăn nửa chín", không còn là code người đọc, cũng chưa phải mã máy, mà là một định dạng trung gian chuẩn hóa, sẵn sàng để JVM thực thi.  
+
+3.  **Chạy trên JVM (Java Virtual Machine)**: JVM đọc Bytecode và dịch nó thành mã máy mà hệ điều hành cụ thể của bạn hiểu được. Đây là bước "dọn bàn" — và cũng chính là chìa khóa giúp cùng một file `.class` chạy được trên Windows, macOS hay Linux, miễn là nơi đó có cài JVM.  
+
+4.  **Dọn dẹp**: JVM không chỉ dịch mã, nó còn quản lý bộ nhớ, xử lý lỗi, và tự dọn dẹp những thứ không còn dùng đến (như các biến đã bị bỏ rơi).
+---
 Mấu chốt của tính đa nền tảng nằm ở chỗ này: trình biên dịch tạo ra một Bytecode duy nhất, độc lập với nền tảng; phần phụ thuộc vào hệ điều hành được đẩy hết xuống JVM. Mỗi hệ điều hành có một phiên bản JVM riêng, nhưng đối với code của bạn thì JVM nào cũng "nói" chung một thứ tiếng — Bytecode. Đó chính là cơ chế thật sự đứng sau "write once, run anywhere".
 
 ```
@@ -53,8 +50,8 @@ Mấu chốt của tính đa nền tảng nằm ở chỗ này: trình biên d�
   - JVM (Java Virtual Machine): Máy ảo Java trực tiếp chạy Bytecode.
 ---
 
-## **III. CẤU TRÚC CHƯƠNG TRÌNH JAVA VÀ PACKAGE**
-### 1. Chương trình mẫu 
+##  **III. CẤU TRÚC CHƯƠNG TRÌNH JAVA VÀ PACKAGE**
+###  **1. Chương trình mẫu **
 VD: Chương trình in ra `Hello World!`
 
 ```java
@@ -80,16 +77,16 @@ public class Main {
 - `public` (Access Modifier - Phạm vi truy cập):
   - Cho phép phương thức này có thể được truy cập và gọi từ bất kỳ đâu, kể cả bên ngoài class hay bên ngoài package.
 
-  - JVM nằm ngoài package và class chứa hàm main của bạn. Để JVM có thể tìm thấy và kích hoạt hàm main khi khởi chạy ứng dụng, phương thức này bắt buộc phải được khai báo là public.
-<br>
+  - JVM nằm ngoài package và class chứa hàm main của bạn. Để JVM có thể tìm thấy và kích hoạt hàm main khi khởi chạy ứng dụng, phương thức này bắt buộc phải được khai báo là public.  
+
 - `static` (Từ khóa cấp lớp):
   - Khai báo phương thức thuộc về chính Class chứ không thuộc về một Object (đối tượng) cụ thể nào được tạo ra từ class đó.
-  - Nhờ có static, JVM có thể gọi trực tiếp `Main.main()` mà không cần phải khởi tạo đối tượng `new Main()` trước (tránh lãng phí bộ nhớ)          
-<br>
-- `void` (Kiểu trả về): Báo cho trình biên dịch biết phương thức này không trả về bất kỳ giá trị nào sau khi thực thi xong.
-<br>
-- `main` (Tên phương thức): Đây là tên mặc định quy ước bởi ngôn ngữ Java dành cho phương thức khởi đầu.
-<br>
+  - Nhờ có static, JVM có thể gọi trực tiếp `Main.main()` mà không cần phải khởi tạo đối tượng `new Main()` trước (tránh lãng phí bộ nhớ)           
+
+- `void` (Kiểu trả về): Báo cho trình biên dịch biết phương thức này không trả về bất kỳ giá trị nào sau khi thực thi xong.  
+
+- `main` (Tên phương thức): Đây là tên mặc định quy ước bởi ngôn ngữ Java dành cho phương thức khởi đầu.  
+
 - `String[] args` (Tham số dòng lệnh - Command-line arguments)
   - `String[]`: Mảng chứa các chuỗi ký tự (String).
   - `args`: Tên biến đại diện cho mảng (bạn có thể đổi tên args thành tên khác như arguments hay a).
@@ -104,18 +101,16 @@ java Main Hello World 123
 ---
 ### 3. **Package là gì?**
 #### *3.1 Khái niệm*
-- Package trong Java tương đương với một thư mục dùng để gom nhóm các lớp (class), giao diện (interface) có cùng chức năng hoặc liên quan với nhau.
-<br>
+- Package trong Java tương đương với một thư mục dùng để gom nhóm các lớp (class), giao diện (interface) có cùng chức năng hoặc liên quan với nhau.  
+
 #### *3.2 Tác dụng*
   - Phân loại mã nguồn giúp quản lý dự án dễ dàng.
   - Tránh xung đột tên (VD: Bạn có thể có 2 class cùng tên User nếu nằm ở 2 package khác nhau).
-  - Kiểm soát quyền truy cập giữa các lớp.
-<br>
+  - Kiểm soát quyền truy cập giữa các lớp.  
 
 #### *3.3 Cú pháp*
   - Viết bằng chữ cái in thường
   - Khai báo ở đầu file: `package com.proptit.app;`
-
   - Nhập (import) thư mục/class từ package khác: `import com.proptit.app.Training;`
 
 **VD1: 2 File có CÙNG Package**
@@ -128,8 +123,7 @@ package com.proptit.app;
 public class Student {
     public String name = "Nguyen Van A";
 }
-```
-<br>
+```  
 
 ```java
 // File 2: Main.java (Cùng package với Student)
@@ -141,11 +135,10 @@ public class Main {
         System.out.println(st.name);
     }
 }
-```
-<br>
+```  
 
 **VD2: 2 File khác Package**
-- Class cần dùng phải được khai báo bằng từ khóa public.
+- Class cần dùng phải được khai báo bằng từ khóa public.  
 
 - Ở file mới, bạn phải dùng lệnh import trỏ đúng đến tên package + tên class đó.
 
@@ -180,8 +173,7 @@ public class A {
     System.out.println("Hello");
     }
 }
-```
-<br>
+```  
 
 ```java
 package mypack; 
@@ -191,7 +183,7 @@ class B{
         obj.msg(); // in kq: Hello
     } 
 } 
-```
+```  
 
 #### *3.4 Quy trình thao tác*
 - Chuẩn bị file: Tạo file Simple.java với nội dung:
@@ -203,20 +195,17 @@ public class Simple {
         System.out.println("Learn java package");
     }
 }
-```
-<br>
+```  
 
 - Biên dịch (Compile)
 ```Bash
 javac -d . Simple.java
-```
-<br>
+```  
 
 - Chạy chương trình (Run)
 ```Bash
 java mypack.Simple
-```
-<br>
+```  
 
 - Kết quả in ra màn hình;
 ```
@@ -237,8 +226,6 @@ Learn java package
 | | `double` | 8 bytes (64 bits) | `0.0d` | Chính xác ~15 chữ số thập phân *(Mặc định cho số thực)* | `double price = 99.99;` |
 | **Ký tự** | `char` | 2 bytes (16 bits) | `'\u0000'` | Ký tự Unicode đơn (đặt trong dấu nháy đơn `''`) | `char grade = 'A';` |
 | **Logic** | `boolean` | 1 bit (về lý thuyết) | `false` | Chỉ nhận giá trị `true` hoặc `false` | `boolean pro = true;` |
-
-<br>
 
 > Một số lưu ý quan trọng:
 > - Hằng số số nguyên trong Java mặc định là int. Muốn gán kiểu long bắt buộc phải có hậu tố L hoặc l.
