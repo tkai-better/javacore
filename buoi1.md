@@ -174,7 +174,7 @@ public class Main {
 package pack; 
 public class A {
     public void msg() {
-    System.out.println("Hello");
+        System.out.println("Hello");
     }
 }
 ```  
@@ -199,7 +199,7 @@ public class Simple {
         System.out.println("Learn java package");
     }
 }
-``git`  
+```
 
 - Biên dịch (Compile)
 ```Bash
@@ -207,6 +207,7 @@ javac -d . Simple.java
 ```  
 
 - Chạy chương trình (Run)
+
 ```Bash
 java mypack.Simple
 ```  
@@ -342,3 +343,348 @@ for (int num : numbers) {
 ---
 ## **V. CLASS VÀ OBJECT**
 
+### **5.1 CLASS**
+
+- *Class* là một khuôn mẫu (template), định nghĩa:
+
+    - Thuộc tính (*fields*) – dữ liệu
+        - Là các biến được khai báo bên trong *class*
+        - Dùng để lưu trạng thái của *object*
+    - Phương thức (*methods*) – hành động
+        - Là các hàm bên trong *class*, mô tả hành vi của *object*
+
+VD:
+```java
+public class Student {
+    String ten;        // field
+    int diem;          // field
+
+    void study() {     // method
+        System.out.println(ten + " đang học bài");
+    }
+    void exam() {      // method
+        System.out.println(ten + " được " + diem + " điểm");
+    }
+}
+```
+--- 
+### **5.2 OBJECT**
+
+-  Là một thực thể cụ thể (instance) được sinh ra từ một *Class* thông qua toán tử `new`
+
+```java
+Student s1 = new Student();
+s1.ten = "Khải";
+s1.diem = 10;
+s1.study();      //  Khải đang học bài
+s1.exam();       //  Khải được 10 điểm
+```
+
+## **VI. Các từ khóa hay dùng**
+
+### **6.1 THIS**
+
+- Dùng để "tham chiếu" tới giá trị nào đó của đối tượng đang xét
+
+- Phân biệt thuộc tính của Class với tham số trùng tên
+
+- Gọi constructor khác (this(...)).
+
+- Truyền đối tượng hiện tại làm tham số cho một phương thức khác.
+
+```java
+public class Person {
+  String name;
+
+  public Person(String name) {
+    this.name = name; 
+    // this.name là thuộc tính của object
+    // name là tham số của constructor
+  }
+}
+```
+---
+### **6.2 Phương thức khởi tạo (Constructor)**
+
+#### *6.2.1 Khái niệm*
+- *Constructor* là một hàm đặc biệt để khởi tạo *object*
+
+#### *6.2.2 Đặc điểm*
+
+- Tên của *Constructor* bắt buộc trùng với tên *Class*
+- Không có kiểu trả về
+- Dùng từ khóa `new` để khởi tạo
+
+#### *6.2.3 Các loại Constructor*
+
+##### **A. Default Constructor** (Khởi tạo mặc định / Không tham số)
+
+- Là constructor không nhận vào bất kỳ tham số nào.
+
+- Mục đích: 
+    - Khởi tạo đối tượng với các giá trị mặc định của kiểu dữ liệu (ví dụ: 0, 0.0, null, false)
+    - giá trị mặc định do người code viết 
+
+```java
+public class Student {
+    String name;
+    int score;
+
+    // khởi tạo giá trị mặc định của kiểu dữ liệu
+    public Student() {} 
+
+    // khởi tạo mặc định do người code tự định nghĩa
+    public Student() {
+        this.name = "Khải";
+        this.score = 10;
+    } 
+}
+
+____________________________
+Student a = new Student();
+// cách 1: a.name = null, a.score = 0
+// cách 2: b.name = "Khải", b.score = 10;
+
+Student b = new Student();
+// giá trị của b giống với a
+```
+---
+
+##### **B. Parameterized Constructor** (Khởi tạo có tham số)
+
+- Là *constructor* nhận vào một hoặc nhiều tham số đầu vào.
+
+- Mục đích: Cho phép gán giá trị cụ thể cho các thuộc tính ngay tại thời điểm tạo *object*.
+
+```java
+public class Student {
+    String name;
+    int age;
+
+    // Constructor có tham số
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+_________________________
+// Khởi tạo đối tượng với dữ liệu cụ thể:
+Student a = new Student("Khải", 10);
+// a.name = "Khải", a.score = 10
+
+Student b = new Student("Linh", 9);
+// b.name = "Linh", b.score = 9
+
+```
+---
+
+##### **C. Constructor Overloading** (Nạp chồng hàm khởi tạo)
+- Một Class có thể có nhiều constructor khác nhau về số lượng hoặc kiểu dữ liệu của tham số truyền vào.
+
+```java
+public class Student {
+    String name;
+    int age;
+
+    // 1. Constructor không tham số (Mặc định)
+    public Student() {
+        this.name = "Chưa có tên";
+        this.age = 0;
+    }
+
+    // 2. Constructor có 1 tham số
+    public Student(String name) {
+        this.name = name;
+        this.age = 18; // Mặc định gán age = 18
+    }
+
+    // 3. Constructor có 2 tham số (Khác về số lượng tham số)
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+> Lưu ý: Khi dùng nhiều Constructor khác nhau mà số lượng tham số truyền vào bằng nhau thì kiểu dữ liệu truyền vào phải khác nhau
+---
+
+##### **D. Copy Constructor** (Khởi tạo
+
+ sao chép)
+
+- Là constructor nhận tham số đầu vào là chính một đối tượng khác thuộc cùng Class.
+
+- Mục đích: Tạo ra một đối tượng mới có dữ liệu sao chép hoàn toàn từ một đối tượng đã tồn tại.
+
+- Lưu ý: Trong C++ có sẵn Copy Constructor, còn trong Java ta thường phải tự định nghĩa thủ công.
+
+```java
+public class Student {
+    String name;
+    int age;
+
+    // khởi tạo có tham số
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // 2. Khởi tạo sao chép
+    public Student(Student other) {
+        this.name = other.name;
+        this.age = other.age;
+    }
+}
+
+_____________________________
+// Sử dụng:
+Student s1 = new Student("An", 20);
+Student s2 = new Student(s1); 
+// s2 có name = "An", age = 20
+```
+---
+##### **E. Constructor Chaining**
+
+```java
+public class Student {
+    private String name;
+    private int age;
+
+    // Constructor 1 (Không tham số)
+    public Student() {
+        // Gọi đến Constructor 2 với giá trị mặc định
+        this("Chưa đặt tên", 0); 
+    }
+
+    // Constructor 2 (Có tham số)
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+---
+#### **6.3 Phạm vi truy cập (Access Modifiers)**
+
+- *Access modifier* kiểm soát khả năng truy cập của các thành viên (thuộc tính và phương thức) trong class.
+
+| Access Modifier | Phạm vi truy cập                                           |
+|-----------------|-----------------------------------------------------------|
+| `public`       | Truy cập được từ mọi nơi.                                     |
+| `private`      | Chỉ truy cập được trong class.                               |
+| `protected`    | Truy cập được trong class, các lớp con và lớp trong cùng package. |
+| `(default)`    | Truy cập được trong cùng package.                            |
+
+- Sử dụng access modifier để **bảo vệ dữ liệu** và **che giấu thông tin** không cần thiết.
+
+```java
+public class Person {
+  public String name; // Truy cập được từ mọi nơi
+  private int age; // Chỉ truy cập được trong class Person
+}
+```
+---
+#### **6.4 SETTER & GETTER**
+
+- **Tính đóng gói**: là cơ chế gom nhóm dữ liệu (thuộc tính) và các phương thức thao tác trên dữ liệu đó vào trong một đơn vị duy nhất (*Class*), đồng thời ẩn giấu trạng thái bên trong của đối tượng để ngăn chặn sự can thiệp và sửa đổi tùy tiện từ bên ngoài *Class*.
+
+- Cách cài đặt chuẩn:
+    - Khai báo các biến thuộc tính (fields) với mức truy cập `private`.
+    - Cung cấp các phương thức public để đọc dữ liệu (*Getter*) và cập nhật dữ liệu (*Setter*).
+
+```java
+public class Student {
+    // Thuộc tính riêng tư, ngăn truy cập trực tiếp từ bên ngoài
+    private String name;
+    private int age;
+
+    // GETTER : Dùng để lấy giá trị name
+    public String getName() {
+        return this.name;
+    }
+
+    // Dùng để lấy giá trị age
+    public int getAge() {
+        return this.age;
+    }
+
+    // SETTER dùng để gán/thay đổi giá trị name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // SETTER dùng để gán giá trị age kèm KIỂM TRA DỮ LIỆU
+    public void setAge(int age) {
+        if (age > 0 && age < 120) { // Kiểm tra tuổi hợp lệ
+            this.age = age;
+        } 
+        else {
+            System.out.println("Lỗi: Tuổi không hợp lệ!");
+        }
+    }
+}
+```
+---
+#### **6.5 STATIC**
+
+- Từ khóa `static` dùng để quản lý bộ nhớ và khai báo các thành phần thuộc về *Class* chứ không thuộc về từng *Object* cụ thể.
+
+- Các dạng `static` chính
+    - **Biến static**: Dùng chung một vùng nhớ duy nhất cho tất cả các đối tượng được tạo ra từ class đó.
+
+    - **Phương thức static** : Có thể gọi trực tiếp qua tên Class mà không cần khởi tạo đối tượng.
+
+    - **Khối static**: Dùng để khởi tạo các biến static, được chạy một lần duy nhất khi class được nạp vào bộ nhớ.
+
+> Lưu ý: Phương thức static chỉ có thể truy cập trực tiếp các biến hoặc phương thức static khác, không thể sử dụng từ khóa `this`.
+
+- VD
+```java
+public class Student {
+    private String name; // Biến instance
+    
+    // 1. Biến static
+    public static String school;
+    public static int cnt = 0; // Đếm số lượng sinh viên được tạo ra
+
+    // 2. Khối static (chạy 1 lần duy nhất khi nạp Class)
+    static {
+        school = "Đại học Bách Khoa";
+        System.out.println("Khối static: Đã khởi tạo trường " + school);
+    }
+    
+    // Constructor
+    public Student(String name) {
+        this.name = name;
+        cnt++; // Tăng số lượng sinh viên dùng chung
+    }
+
+    // 3. Phương thức static
+    public static void displayInfo() {
+        System.out.println("Trường: " + school);
+        
+        // System.out.println(this.name); // LỖI BÊN BIÊN DỊCH: Không dùng được 'this' hay biến 'name' ở đây!
+    }
+
+    public static void main(String[] args) {
+        // Tạo các đối tượng
+        Student s1 = new Student("An");
+        Student s2 = new Student("Bình");
+
+        // Gọi phương thức static qua tên Class
+        Student.displayInfo();
+
+        // Gọi biến static trực tiếp qua tên Class
+        System.out.println("Tổng số sinh viên: " + Student.cnt); 
+    }
+}
+```
+- OUTPUT:
+```
+Khối static: Đã khởi tạo trường Đại học Bách Khoa
+Trường: Đại học Bách Khoa
+Tổng số sinh viên: 2
+```
+---
