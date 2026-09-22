@@ -1,0 +1,22 @@
+- Xem Repository GitHub đang liên kết
+    git remote -v
+
+- Xem Branch hiện tại
+    git branch
+
+- Đổi lại URL Remote về Repo
+    git remote set-url origin https://github.com/d25-java/tai-lieu-chuan-bi.git
+    git remote set-url origin https://github.com/tkai-better/javacore.git
+
+- Đẩy code lại lên Repo cũ
+    git push -u origin d25_dam_thuan_khai
+
+- Cập nhật
+    git add .   
+    git commit -m "Initial commit"
+    git push
+    
+- Check branch:
+    git checkout d25_dam_thuan_khai
+    git checkout -b ten_branch_moi    // tạo branch mới
+
