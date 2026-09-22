@@ -15,12 +15,9 @@
     git add .   
     git commit -m "Initial commit"
     git push
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> d25_dam_thuan_khai
 - Check branch:
+    git checkout main
     git checkout d25_dam_thuan_khai
     git checkout -b ten_branch_moi    // tạo branch mới
 
