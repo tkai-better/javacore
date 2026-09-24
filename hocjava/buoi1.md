@@ -218,8 +218,74 @@ Learn java package
 ```
 ---
 ## **IV. SYNTAX CƠ BẢN TRONG JAVA**
-### **4.1 Khai báo biến nguyên thủy**
-#### *4.1.1. 8 kiểu dữ liệu nguyên thủy*
+
+### **4.1 Nhập / Xuất trong JAVA**
+
+#### *4.1.1 Nhập dữ liệu từ bàn phím (Input)*
+- Cách phổ biến, đơn giản và hiện đại nhất để đọc dữ liệu từ bàn phím là sử dụng lớp Scanner trong gói java.util.
+
+- Các bước thực hiện:
+    - Khai báo thư viện: `import java.util.Scanner;`
+
+    - Tạo đối tượng Scanner: `Scanner scanner = new Scanner(System.in);`
+
+- Các phương thức thông dụng của Scanner:
+    - scanner.next(): Đọc một chuỗi (từ đầu tiên, dừng khi gặp khoảng trắng).
+
+    - scanner.nextLine(): Đọc cả một dòng văn bản (bao gồm cả khoảng trắng).
+
+    - scanner.nextInt(): Đọc một số nguyên (int).
+
+    - scanner.nextDouble(): Đọc một số thực (double).
+
+    - scanner.nextBoolean(): Đọc giá trị true/false.
+
+```java
+import java.util.Scanner; // Bước 1: Import thư viện
+
+public class InputOutputDemo {
+    public static void main(String[] args) {
+        // Bước 2: Khởi tạo đối tượng Scanner
+        Scanner scanner = new Scanner(System.in);
+
+        // Nhập chuỗi
+        String fullName = scanner.nextLine();
+
+        // Nhập số nguyên
+        int age = scanner.nextInt();
+
+        // Nhập số thực
+        double gpa = scanner.nextDouble();
+
+        // Đóng scanner khi không sử dụng nữa (tùy chọn nhưng nên làm)
+        scanner.close();
+    }
+}
+```
+#### *4.1.2 Xuất dữ liệu ra màn hình (Output)*
+- Để in dữ liệu ra màn hình console, *Java* sử dụng đối tượng `out` của lớp `System`.
+
+    - `System.out.println()`: In ra màn hình và xuống dòng ở cuối.
+
+    - `System.out.print()`: In ra màn hình và giữ nguyên con trỏ ở dòng hiện tại.
+
+    - `System.out.printf()`: In có định dạng (tương tự như hàm printf trong C).
+
+```java
+public class OutputDemo {
+    public static void main(String[] args) {
+        System.out.print("Xin chào ");
+        System.out.println("Java!"); // In xong xuống dòng
+        
+        String name = "Nam";
+        int age = 20;
+        System.out.printf("Tên: %s, Tuổi: %d\n", name, age);
+    }
+}
+```
+---
+### **4.2 Khai báo biến nguyên thủy**
+#### *4.2.1. 8 kiểu dữ liệu nguyên thủy*
 
 | Nhóm | Kiểu dữ liệu | Kích thước | Giá trị mặc định | Khoảng giá trị / Mô tả | Ví dụ khai báo |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -237,7 +303,7 @@ Learn java package
 > - Hằng số số thực mặc định là double. Muốn gán cho kiểu float, bắt buộc phải có hậu tố F hoặc f.
 ---
 
-#### *4.1.2 Quy tắc đặt tên biến*
+#### *4.2.2 Quy tắc đặt tên biến*
 - Ký tự cho phép: Chỉ gồm chữ cái (a-z, A-Z), chữ số (0-9), dấu gạch dưới (_), và dấu đô la ($).
 
 - Không bắt đầu bằng số: Tên biến không được bắt đầu bằng chữ số.
@@ -253,7 +319,7 @@ int number1 = 10; (Hợp lệ)
 
 - Không chứa khoảng trắng hoặc ký tự đặc biệt khác (@, #, %, -,...).
 ---
-### **4.2 Câu lệnh rẽ nhánh**
+### **4.3 Câu lệnh rẽ nhánh**
 
 ```java
 int score = 85;
@@ -277,7 +343,7 @@ switch (day) {
 }
 ```
 ---
-### **4.3 Vòng Lặp**
+### **4.4 Vòng Lặp**
 ```java
 // 1. Vòng lặp for
 for (int i = 0; i < 5; i++) {
@@ -300,7 +366,7 @@ do {
 ```
 ---
 
-### **4.4 Mảng (ARRAY)**
+### **4.5 Mảng (ARRAY)**
 - Khai báo
 ```java
 // Cách 1: Khai báo kích thước mảng trước
