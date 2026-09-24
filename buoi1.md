@@ -218,6 +218,7 @@ Learn java package
 ```
 ---
 ## **IV. SYNTAX CƠ BẢN TRONG JAVA**
+
 ### **4.1 Khai báo biến nguyên thủy**
 #### *4.1.1. 8 kiểu dữ liệu nguyên thủy*
 
@@ -253,7 +254,27 @@ int number1 = 10; (Hợp lệ)
 
 - Không chứa khoảng trắng hoặc ký tự đặc biệt khác (@, #, %, -,...).
 ---
-### **4.2 Câu lệnh rẽ nhánh**
+### **4.2 Nhập / Xuất trong java**
+
+```java
+import java.util.Scanner;   // thư viện dùng cho nhập
+
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);  // đọc input
+        int a = in.nextInt();   // đọc số nguyên đầu tiên
+        int b = in.nextInt();   // đọc số nguyên thứ hai
+        in.close();   // đóng luồng nhập
+
+        // in ra giá trị của a và xuống dòng
+        System.out.println(a);
+        // in ra giá trị của b
+        System.out.print(b);
+    }
+}
+```
+---
+### **4.3 Câu lệnh rẽ nhánh**
 
 ```java
 int score = 85;
@@ -277,7 +298,7 @@ switch (day) {
 }
 ```
 ---
-### **4.3 Vòng Lặp**
+### **4.4 Vòng Lặp**
 ```java
 // 1. Vòng lặp for
 for (int i = 0; i < 5; i++) {
@@ -300,7 +321,7 @@ do {
 ```
 ---
 
-### **4.4 Mảng (ARRAY)**
+### **4.5 Mảng (ARRAY)**
 - Khai báo
 ```java
 // Cách 1: Khai báo kích thước mảng trước
