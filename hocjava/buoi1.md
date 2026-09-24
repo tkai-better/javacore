@@ -117,7 +117,7 @@ args[0] = "Hello", args[1] = "World", args[2] = "123".
   - Viết bằng chữ cái in thường
   - Khai báo ở đầu file: `package com.proptit.app;`
   - Nhập (import) thư mục/class từ package khác: `import com.proptit.app.Training;`
-
+___
 ```VD1: 2 File có CÙNG Package```
 - Bạn có thể khởi tạo đối tượng hoặc gọi trực tiếp các phương thức/lớp mà không cần import.
 
@@ -219,26 +219,91 @@ Learn java package
 ---
 ## **IV. SYNTAX CƠ BẢN TRONG JAVA**
 
-### **4.1 Khai báo biến nguyên thủy**
-#### *4.1.1. 8 kiểu dữ liệu nguyên thủy*
+### **4.1 Nhập / Xuất trong JAVA**
+
+#### *4.1.1 Nhập dữ liệu từ bàn phím (Input)*
+- Cách phổ biến, đơn giản và hiện đại nhất để đọc dữ liệu từ bàn phím là sử dụng lớp Scanner trong gói java.util.
+
+- Các bước thực hiện:
+    - Khai báo thư viện: `import java.util.Scanner;`
+
+    - Tạo đối tượng Scanner: `Scanner scanner = new Scanner(System.in);`
+
+- Các phương thức thông dụng của Scanner:
+    - scanner.next(): Đọc một chuỗi (từ đầu tiên, dừng khi gặp khoảng trắng).
+
+    - scanner.nextLine(): Đọc cả một dòng văn bản (bao gồm cả khoảng trắng).
+
+    - scanner.nextInt(): Đọc một số nguyên (int).
+
+    - scanner.nextDouble(): Đọc một số thực (double).
+
+    - scanner.nextBoolean(): Đọc giá trị true/false.
+
+```java
+import java.util.Scanner; // Bước 1: Import thư viện
+
+public class InputOutputDemo {
+    public static void main(String[] args) {
+        // Bước 2: Khởi tạo đối tượng Scanner
+        Scanner scanner = new Scanner(System.in);
+
+        // Nhập chuỗi
+        String fullName = scanner.nextLine();
+
+        // Nhập số nguyên
+        int age = scanner.nextInt();
+
+        // Nhập số thực
+        double gpa = scanner.nextDouble();
+
+        // Đóng scanner khi không sử dụng nữa (tùy chọn nhưng nên làm)
+        scanner.close();
+    }
+}
+```
+#### *4.1.2 Xuất dữ liệu ra màn hình (Output)*
+- Để in dữ liệu ra màn hình console, *Java* sử dụng đối tượng `out` của lớp `System`.
+
+    - `System.out.println()`: In ra màn hình và xuống dòng ở cuối.
+
+    - `System.out.print()`: In ra màn hình và giữ nguyên con trỏ ở dòng hiện tại.
+
+    - `System.out.printf()`: In có định dạng (tương tự như hàm printf trong C).
+
+```java
+public class OutputDemo {
+    public static void main(String[] args) {
+        System.out.print("Xin chào ");
+        System.out.println("Java!"); // In xong xuống dòng
+        
+        String name = "Nam";
+        int age = 20;
+        System.out.printf("Tên: %s, Tuổi: %d\n", name, age);
+    }
+}
+```
+---
+### **4.2 Khai báo biến nguyên thủy**
+#### *4.2.1. 8 kiểu dữ liệu nguyên thủy*
 
 | Nhóm | Kiểu dữ liệu | Kích thước | Giá trị mặc định | Khoảng giá trị / Mô tả | Ví dụ khai báo |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Số nguyên** | `byte` | 1 byte (8 bits) | `0` | -128 đến 127 | `byte b = 100;` |
 | | `short` | 2 bytes (16 bits) | `0` | -32,768 đến 32,767 | `short s = 5000;` |
-| | `int` | 4 bytes (32 bits) | `0` | Khoảng -2.14 tỷ đến 2.14 tỷ *(Mặc định cho số nguyên)* | `int age = 25;` |
+| | `int` | 4 bytes (32 bits) | `0` | Khoảng -2.14 tỷ đến 2.14 tỷ  | `int age = 25;` |
 | | `long` | 8 bytes (64 bits) | `0L` | Từ $-2^{63}$ đến $2^{63}-1$ *(Cần đuôi `L` hoặc `l`)* | `long pop = 8000000000L;` |
 | **Số thực** | `float` | 4 bytes (32 bits) | `0.0f` | Chính xác ~6-7 chữ số thập phân *(Cần đuôi `F` hoặc `f`)* | `float pi = 3.14f;` |
-| | `double` | 8 bytes (64 bits) | `0.0d` | Chính xác ~15 chữ số thập phân *(Mặc định cho số thực)* | `double price = 99.99;` |
+| | `double` | 8 bytes (64 bits) | `0.0d` | Chính xác ~15 chữ số thập phân | `double price = 99.99;` |
 | **Ký tự** | `char` | 2 bytes (16 bits) | `'\u0000'` | Ký tự Unicode đơn (đặt trong dấu nháy đơn `''`) | `char grade = 'A';` |
-| **Logic** | `boolean` | 1 bit (về lý thuyết) | `false` | Chỉ nhận giá trị `true` hoặc `false` | `boolean pro = true;` |
+| **Logic** | `boolean` | 1 bit  | `false` | Chỉ nhận giá trị `true` hoặc `false` | `boolean pro = true;` |
 
 > Một số lưu ý quan trọng:
 > - Hằng số số nguyên trong Java mặc định là int. Muốn gán kiểu long bắt buộc phải có hậu tố L hoặc l.
 > - Hằng số số thực mặc định là double. Muốn gán cho kiểu float, bắt buộc phải có hậu tố F hoặc f.
 ---
 
-#### *4.1.2 Quy tắc đặt tên biến*
+#### *4.2.2 Quy tắc đặt tên biến*
 - Ký tự cho phép: Chỉ gồm chữ cái (a-z, A-Z), chữ số (0-9), dấu gạch dưới (_), và dấu đô la ($).
 
 - Không bắt đầu bằng số: Tên biến không được bắt đầu bằng chữ số.
@@ -253,26 +318,6 @@ int number1 = 10; (Hợp lệ)
 - Không trùng từ khóa (Keywords): Không đặt tên trùng với từ khóa reserved của Java như class, int, public, static, void, for, if,...
 
 - Không chứa khoảng trắng hoặc ký tự đặc biệt khác (@, #, %, -,...).
----
-### **4.2 Nhập / Xuất trong java**
-
-```java
-import java.util.Scanner;   // thư viện dùng cho nhập
-
-class Solution{
-    public static void main(String []argh){
-        Scanner in = new Scanner(System.in);  // đọc input
-        int a = in.nextInt();   // đọc số nguyên đầu tiên
-        int b = in.nextInt();   // đọc số nguyên thứ hai
-        in.close();   // đóng luồng nhập
-
-        // in ra giá trị của a và xuống dòng
-        System.out.println(a);
-        // in ra giá trị của b
-        System.out.print(b);
-    }
-}
-```
 ---
 ### **4.3 Câu lệnh rẽ nhánh**
 
@@ -531,9 +576,7 @@ public class Student {
 > Lưu ý: Khi dùng nhiều Constructor khác nhau mà số lượng tham số truyền vào bằng nhau thì kiểu dữ liệu truyền vào phải khác nhau
 ---
 
-##### **D. Copy Constructor** (Khởi tạo
-
- sao chép)
+##### **D. Copy Constructor** (Khởi tạo sao chép)
 
 - Là constructor nhận tham số đầu vào là chính một đối tượng khác thuộc cùng Class.
 
