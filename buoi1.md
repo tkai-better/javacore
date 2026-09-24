@@ -117,7 +117,7 @@ args[0] = "Hello", args[1] = "World", args[2] = "123".
   - Viết bằng chữ cái in thường
   - Khai báo ở đầu file: `package com.proptit.app;`
   - Nhập (import) thư mục/class từ package khác: `import com.proptit.app.Training;`
-
+___
 ```VD1: 2 File có CÙNG Package```
 - Bạn có thể khởi tạo đối tượng hoặc gọi trực tiếp các phương thức/lớp mà không cần import.
 
@@ -225,12 +225,12 @@ Learn java package
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Số nguyên** | `byte` | 1 byte (8 bits) | `0` | -128 đến 127 | `byte b = 100;` |
 | | `short` | 2 bytes (16 bits) | `0` | -32,768 đến 32,767 | `short s = 5000;` |
-| | `int` | 4 bytes (32 bits) | `0` | Khoảng -2.14 tỷ đến 2.14 tỷ *(Mặc định cho số nguyên)* | `int age = 25;` |
+| | `int` | 4 bytes (32 bits) | `0` | Khoảng -2.14 tỷ đến 2.14 tỷ  | `int age = 25;` |
 | | `long` | 8 bytes (64 bits) | `0L` | Từ $-2^{63}$ đến $2^{63}-1$ *(Cần đuôi `L` hoặc `l`)* | `long pop = 8000000000L;` |
 | **Số thực** | `float` | 4 bytes (32 bits) | `0.0f` | Chính xác ~6-7 chữ số thập phân *(Cần đuôi `F` hoặc `f`)* | `float pi = 3.14f;` |
-| | `double` | 8 bytes (64 bits) | `0.0d` | Chính xác ~15 chữ số thập phân *(Mặc định cho số thực)* | `double price = 99.99;` |
+| | `double` | 8 bytes (64 bits) | `0.0d` | Chính xác ~15 chữ số thập phân | `double price = 99.99;` |
 | **Ký tự** | `char` | 2 bytes (16 bits) | `'\u0000'` | Ký tự Unicode đơn (đặt trong dấu nháy đơn `''`) | `char grade = 'A';` |
-| **Logic** | `boolean` | 1 bit (về lý thuyết) | `false` | Chỉ nhận giá trị `true` hoặc `false` | `boolean pro = true;` |
+| **Logic** | `boolean` | 1 bit  | `false` | Chỉ nhận giá trị `true` hoặc `false` | `boolean pro = true;` |
 
 > Một số lưu ý quan trọng:
 > - Hằng số số nguyên trong Java mặc định là int. Muốn gán kiểu long bắt buộc phải có hậu tố L hoặc l.
@@ -510,9 +510,7 @@ public class Student {
 > Lưu ý: Khi dùng nhiều Constructor khác nhau mà số lượng tham số truyền vào bằng nhau thì kiểu dữ liệu truyền vào phải khác nhau
 ---
 
-##### **D. Copy Constructor** (Khởi tạo
-
- sao chép)
+##### **D. Copy Constructor** (Khởi tạo sao chép)
 
 - Là constructor nhận tham số đầu vào là chính một đối tượng khác thuộc cùng Class.
 
